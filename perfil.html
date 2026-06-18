@@ -1,1 +1,114 @@
+<!DOCTYPE html>
 
+<html lang="pt-BR">
+
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<title>Perfil do Editor</title>
+
+
+<link rel="stylesheet" href="style.css">
+
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<h1>Perfil do Editor</h1>
+
+</header>
+
+
+
+<main>
+
+
+<div id="perfil"></div>
+
+
+</main>
+
+
+
+<script>
+
+
+let id = 
+
+new URLSearchParams(
+
+location.search
+
+).get("id");
+
+
+
+let editores = JSON.parse(
+
+localStorage.getItem("editores")
+
+)||[];
+
+
+
+
+let editor = editores[id];
+
+
+
+document
+.getElementById("perfil")
+.innerHTML = `
+
+
+<div class="editor">
+
+
+<h2>${editor.nome}</h2>
+
+
+<p>Email: ${editor.email}</p>
+
+
+<p>Nível: ${editor.nivel}</p>
+
+
+<p>Certificado: ${editor.certificado}</p>
+
+
+<h3>Preço: R$ ${editor.valor}</h3>
+
+
+
+<button>
+
+Contratar Editor
+
+</button>
+
+
+
+</div>
+
+
+`;
+
+
+
+</script>
+
+
+
+</body>
+
+</html>
