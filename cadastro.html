@@ -50,182 +50,43 @@ required>
 
 <label>
 
-<input 
-type="checkbox"
-id="editor">
-
+<label class="check">
+<input type="checkbox" id="editorCheck">
 Conta de Editor
-
 </label>
 
 
+<div id="dadosEditor" class="hidden">
 
-<div id="areaEditor" class="hidden">
-
-
-<input
+<input 
 id="certificado"
-placeholder="Certificado">
+placeholder="Certificado de editor">
 
 
 <select id="nivel">
 
 <option>Iniciante</option>
-
 <option>Intermediário</option>
-
-<option>Avançado</option>
-
 <option>Profissional</option>
+<option>Especialista</option>
 
 </select>
 
 
-
 <input
-
 type="number"
-
 id="valor"
-
-placeholder="Valor do serviço">
-
-
-<input
-
-type="file"
-
-id="arquivo"
-
-accept=".pdf,.png,.jpg">
+placeholder="Preço do serviço">
 
 
 </div>
 
 
-
-<button>
-
-Criar conta
-
+<button onclick="criarConta()">
+Criar Conta
 </button>
 
 
-</form>
-
-
-
-<script>
-
-
-const check =
-document.getElementById("editor");
-
-
-const area =
-document.getElementById("areaEditor");
-
-
-
-check.onchange = ()=>{
-
-
-if(check.checked)
-
-area.classList.remove("hidden");
-
-
-else
-
-area.classList.add("hidden");
-
-
-};
-
-
-
-
-document
-.getElementById("cadastro")
-.onclick = function(e){
-
-
-
-e.preventDefault();
-
-
-
-let lista = JSON.parse(
-
-localStorage.getItem("editores")
-
-) || [];
-
-
-
-
-if(check.checked){
-
-
-
-lista.push({
-
-nome:
-nome.value,
-
-
-email:
-email.value,
-
-
-certificado:
-certificado.value,
-
-
-nivel:
-nivel.value,
-
-
-valor:
-valor.value
-
-
-});
-
-
-
-localStorage.setItem(
-
-"editores",
-
-JSON.stringify(lista)
-
-);
-
-
-alert("Editor cadastrado!");
-
-}
-
-
-else{
-
-
-alert("Cliente cadastrado!");
-
-}
-
-
-
-window.location="index.html";
-
-
-
-}
-
-
-
-</script>
 <script src="script.js"></script>
 
 
