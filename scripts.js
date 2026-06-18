@@ -2,38 +2,58 @@ const checkbox =
 document.getElementById("editorCheck");
 
 
-const dados =
+const dadosEditor =
 document.getElementById("dadosEditor");
 
 
 
 if(checkbox){
 
+
 checkbox.addEventListener("change",()=>{
 
 
 if(checkbox.checked){
 
-dados.classList.remove("hidden");
+
+dadosEditor.classList.remove("hidden");
 
 
 }else{
 
-dados.classList.add("hidden");
+
+dadosEditor.classList.add("hidden");
+
 
 }
 
 
 });
 
+
 }
 
 
 
-function criarConta(){
+
+const form =
+document.getElementById("formCadastro");
+
+
+
+if(form){
+
+
+
+form.addEventListener("submit",(e)=>{
+
+
+e.preventDefault();
+
 
 
 if(checkbox.checked){
+
 
 
 let editores =
@@ -46,6 +66,10 @@ let novoEditor = {
 
 nome:
 document.getElementById("nome").value,
+
+
+email:
+document.getElementById("email").value,
 
 
 certificado:
@@ -81,19 +105,24 @@ JSON.stringify(editores)
 
 
 
-alert("Editor criado com sucesso!");
+alert("Editor cadastrado!");
 
 
 
 }else{
 
 
-alert("Conta de cliente criada!");
+alert("Cliente cadastrado!");
+
 
 }
 
 
+
 window.location="index.html";
 
+
+
+});
 
 }
