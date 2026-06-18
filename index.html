@@ -1,36 +1,97 @@
-<label class="check">
-    <input type="checkbox" id="editorCheck">
-    Conta de Editor
-</label>
+<!DOCTYPE html>
+<html lang="pt-BR">
 
-<div id="dadosEditor" class="esconder">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <input
-        type="text"
-        id="certificado"
-        placeholder="Nome do Certificado"
-    >
+<title>Editor Cliente Platform</title>
 
-    <label class="upload-certificado">
-        📄 Enviar Certificado
-        <input
-            type="file"
-            id="arquivoCertificado"
-            accept=".pdf,.jpg,.jpeg,.png"
-        >
-    </label>
+<link rel="stylesheet" href="style.css">
 
-    <select id="nivel">
-        <option>Iniciante</option>
-        <option>Intermediário</option>
-        <option>Avançado</option>
-        <option>Profissional</option>
-    </select>
+</head>
 
-    <input
-        type="number"
-        id="valorServico"
-        placeholder="Valor do Serviço (R$)"
-    >
+<body>
+
+<header>
+
+<h1>🎬 Editor Cliente Platform</h1>
+
+<p>Contrate editores profissionais</p>
+
+</header>
+
+
+<nav>
+
+<a href="index.html">Home</a>
+
+<a href="cadastro.html">Cadastro</a>
+
+</nav>
+
+
+<main>
+
+<h2>Editores disponíveis</h2>
+
+
+<div id="listaEditores"></div>
+
+
+</main>
+
+
+<script>
+
+
+let editores = JSON.parse(
+localStorage.getItem("editores")
+) || [];
+
+
+const lista =
+document.getElementById("listaEditores");
+
+
+if(editores.length == 0){
+
+lista.innerHTML =
+"<p>Nenhum editor cadastrado ainda.</p>";
+
+}
+
+
+editores.forEach((editor,index)=>{
+
+
+lista.innerHTML += `
+
+<div class="editor">
+
+<h3>${editor.nome}</h3>
+
+<p>Nível: ${editor.nivel}</p>
+
+<p>Preço: R$ ${editor.valor}</p>
+
+
+<a href="perfil.html?id=${index}">
+Ver perfil
+</a>
+
 
 </div>
+
+`;
+
+
+});
+
+
+</script>
+
+
+</body>
+
+</html>
