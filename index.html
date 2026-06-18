@@ -46,43 +46,55 @@
 <script>
 
 
-let editores = JSON.parse(
-localStorage.getItem("editores")
-) || [];
-
-
-const lista =
+let lista =
 document.getElementById("listaEditores");
 
 
-if(editores.length == 0){
+let editores =
+JSON.parse(localStorage.getItem("editores")) || [];
+
+
+
+if(editores.length === 0){
+
 
 lista.innerHTML =
-"<p>Nenhum editor cadastrado ainda.</p>";
+"<p>Nenhum editor disponível</p>";
+
 
 }
 
 
-editores.forEach((editor,index)=>{
+
+editores.forEach(editor=>{
 
 
 lista.innerHTML += `
 
 <div class="editor">
 
-<h3>${editor.nome}</h3>
 
-<p>Nível: ${editor.nivel}</p>
-
-<p>Preço: R$ ${editor.valor}</p>
+<h2>${editor.nome}</h2>
 
 
-<a href="perfil.html?id=${index}">
-Ver perfil
-</a>
+<p>✔ Verificado</p>
+
+
+<p>⭐ Nível: ${editor.nivel}</p>
+
+
+<p>💰 R$ ${editor.valor}</p>
+
+
+<button>
+
+Contratar
+
+</button>
 
 
 </div>
+
 
 `;
 
