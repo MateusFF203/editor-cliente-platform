@@ -1,11 +1,9 @@
 <!DOCTYPE html>
-<link rel="stylesheet" href="style.css">
 <html lang="pt-BR">
 
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Cadastro</title>
@@ -32,13 +30,15 @@
 </nav>
 
 
-<form id="cadastro">
+
+<form id="formCadastro">
 
 
 <input 
 id="nome"
 placeholder="Nome completo"
 required>
+
 
 
 <input
@@ -48,43 +48,69 @@ required>
 
 
 
-<label>
-
 <label class="check">
-<input type="checkbox" id="editorCheck">
+
+<input 
+type="checkbox"
+id="editorCheck">
+
+
 Conta de Editor
+
 </label>
+
+
 
 
 <div id="dadosEditor" class="hidden">
 
-<input 
+
+<input
 id="certificado"
-placeholder="Certificado de editor">
+placeholder="Certificado">
+
 
 
 <select id="nivel">
 
+
 <option>Iniciante</option>
+
 <option>Intermediário</option>
+
 <option>Profissional</option>
+
 <option>Especialista</option>
+
 
 </select>
 
 
+
 <input
+
 type="number"
+
 id="valor"
+
 placeholder="Preço do serviço">
 
 
 </div>
 
 
-<button onclick="criarConta()">
+
+<button type="submit">
+
 Criar Conta
+
 </button>
+
+
+
+</form>
+
+
 
 
 <script src="script.js"></script>
