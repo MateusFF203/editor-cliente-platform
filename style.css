@@ -1,0 +1,23 @@
+.esconder{
+    display:none;
+}
+
+.check{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:18px;
+    margin:10px 0;
+}
+
+.upload-certificado{
+    background:#334155;
+    padding:15px;
+    border-radius:10px;
+    cursor:pointer;
+    text-align:center;
+}
+
+.upload-certificado input{
+    display:none;
+}
