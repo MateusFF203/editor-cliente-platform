@@ -1,51 +1,55 @@
-const editorCheck = document.getElementById("editorCheck");
-
-const areaEditor = document.getElementById("areaEditor");
-
-
-if(editorCheck){
-
-editorCheck.addEventListener("change",()=>{
+const checkbox =
+document.getElementById("editorCheck");
 
 
-if(editorCheck.checked){
+const dados =
+document.getElementById("dadosEditor");
 
-areaEditor.classList.remove("hidden");
+
+
+if(checkbox){
+
+checkbox.addEventListener("change",()=>{
+
+
+if(checkbox.checked){
+
+dados.classList.remove("hidden");
 
 
 }else{
 
-
-areaEditor.classList.add("hidden");
-
+dados.classList.add("hidden");
 
 }
 
 
 });
 
-
 }
 
 
 
-
-function salvarEditor(){
-
-
-let editores = JSON.parse(
-
-localStorage.getItem("editores")
-
-) || [];
+function criarConta(){
 
 
+if(checkbox.checked){
 
-let editor = {
+
+let editores =
+JSON.parse(localStorage.getItem("editores")) || [];
+
+
+
+let novoEditor = {
 
 
 nome:
 document.getElementById("nome").value,
+
+
+certificado:
+document.getElementById("certificado").value,
 
 
 nivel:
@@ -56,15 +60,14 @@ valor:
 document.getElementById("valor").value,
 
 
-certificado:
-document.getElementById("certificado").value
+verificado:true
 
 
 };
 
 
 
-editores.push(editor);
+editores.push(novoEditor);
 
 
 
@@ -78,8 +81,16 @@ JSON.stringify(editores)
 
 
 
-alert("Editor cadastrado!");
+alert("Editor criado com sucesso!");
 
+
+
+}else{
+
+
+alert("Conta de cliente criada!");
+
+}
 
 
 window.location="index.html";
