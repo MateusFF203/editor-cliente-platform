@@ -1,19 +1,88 @@
-const editorCheck =
-document.getElementById("editorCheck");
+const editorCheck = document.getElementById("editorCheck");
 
-const dadosEditor =
-document.getElementById("dadosEditor");
+const areaEditor = document.getElementById("areaEditor");
 
-editorCheck.addEventListener("change", () => {
 
-    if(editorCheck.checked){
+if(editorCheck){
 
-        dadosEditor.classList.remove("esconder");
+editorCheck.addEventListener("change",()=>{
 
-    }else{
 
-        dadosEditor.classList.add("esconder");
+if(editorCheck.checked){
 
-    }
+areaEditor.classList.remove("hidden");
+
+
+}else{
+
+
+areaEditor.classList.add("hidden");
+
+
+}
+
 
 });
+
+
+}
+
+
+
+
+function salvarEditor(){
+
+
+let editores = JSON.parse(
+
+localStorage.getItem("editores")
+
+) || [];
+
+
+
+let editor = {
+
+
+nome:
+document.getElementById("nome").value,
+
+
+nivel:
+document.getElementById("nivel").value,
+
+
+valor:
+document.getElementById("valor").value,
+
+
+certificado:
+document.getElementById("certificado").value
+
+
+};
+
+
+
+editores.push(editor);
+
+
+
+localStorage.setItem(
+
+"editores",
+
+JSON.stringify(editores)
+
+);
+
+
+
+alert("Editor cadastrado!");
+
+
+
+window.location="index.html";
+
+
+}
