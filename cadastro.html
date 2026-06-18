@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Cadastro</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<h1>Criar Conta</h1>
+
+</header>
+
+
+<nav>
+
+<a href="index.html">Home</a>
+
+</nav>
+
+
+<form id="cadastro">
+
+
+<input 
+id="nome"
+placeholder="Nome completo"
+required>
+
+
+<input
+id="email"
+placeholder="Email"
+required>
+
+
+
+<label>
+
+<input 
+type="checkbox"
+id="editor">
+
+Conta de Editor
+
+</label>
+
+
+
+<div id="areaEditor" class="hidden">
+
+
+<input
+id="certificado"
+placeholder="Certificado">
+
+
+<select id="nivel">
+
+<option>Iniciante</option>
+
+<option>Intermediário</option>
+
+<option>Avançado</option>
+
+<option>Profissional</option>
+
+</select>
+
+
+
+<input
+
+type="number"
+
+id="valor"
+
+placeholder="Valor do serviço">
+
+
+<input
+
+type="file"
+
+id="arquivo"
+
+accept=".pdf,.png,.jpg">
+
+
+</div>
+
+
+
+<button>
+
+Criar conta
+
+</button>
+
+
+</form>
+
+
+
+<script>
+
+
+const check =
+document.getElementById("editor");
+
+
+const area =
+document.getElementById("areaEditor");
+
+
+
+check.onchange = ()=>{
+
+
+if(check.checked)
+
+area.classList.remove("hidden");
+
+
+else
+
+area.classList.add("hidden");
+
+
+};
+
+
+
+
+document
+.getElementById("cadastro")
+.onclick = function(e){
+
+
+
+e.preventDefault();
+
+
+
+let lista = JSON.parse(
+
+localStorage.getItem("editores")
+
+) || [];
+
+
+
+
+if(check.checked){
+
+
+
+lista.push({
+
+nome:
+nome.value,
+
+
+email:
+email.value,
+
+
+certificado:
+certificado.value,
+
+
+nivel:
+nivel.value,
+
+
+valor:
+valor.value
+
+
+});
+
+
+
+localStorage.setItem(
+
+"editores",
+
+JSON.stringify(lista)
+
+);
+
+
+alert("Editor cadastrado!");
+
+}
+
+
+else{
+
+
+alert("Cliente cadastrado!");
+
+}
+
+
+
+window.location="index.html";
+
+
+
+}
+
+
+
+</script>
+
+
+</body>
+
+</html>
